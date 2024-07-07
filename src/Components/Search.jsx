@@ -1,30 +1,15 @@
-import { nanoid } from 'nanoid'
 import React, { useState } from 'react'
 
-const Search = ({ setAddTask, tasksList, setTasksList }) => {
-  const [newTask, setNewTask] = useState('')
-
-  const handleAddTask = () => {
-    if (newTask.trim() === '') return
-    const taskToAdd = {
-      id: nanoid(),
-      body: newTask
-    }
-    setAddTask(newTask.trim())
-    setTasksList([...tasksList, taskToAdd])
-    setNewTask('') // Clear input field after adding task
-  }
-
+const Search = ({setSearchTask}) => {
+    // const [searchTask, setSearchTask] = useState('')
   return (
     <div>
-      <h1> To-Do List </h1>
       <input 
-        type='text'
-        value={newTask}
-        placeholder='Add Task'
-        onChange={e => setNewTask(e.target.value)}
+        type="text" 
+        placeholder="Search Task" 
+        onChange={(e)=>setSearchTask(e.target.value)}
       />
-      <button onClick={handleAddTask}>Add Task</button>
+      {/* <button onClick={()=>handleSearch(searchTask)}>Search</button> */}
     </div>
   )
 }
